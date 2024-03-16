@@ -346,7 +346,7 @@ where
         .allowlist_var("JS.*")
         .opaque_type("FILE")
         .blocklist_type("FILE")
-        .blocklist_function("JS_DumpMemoryUsage");
+        .blocklist_function("JS_Dump.*");
 
     if env::var("CARGO_CFG_TARGET_OS").unwrap() == "wasi" {
         builder = builder.clang_arg("-fvisibility=default");
