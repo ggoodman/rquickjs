@@ -28,13 +28,22 @@ include!("inlines/ptr_32_nan_boxing.rs");
 
 include!("inlines/common.rs");
 
-#[cfg(target_family = "wasm")]
 #[no_mangle]
-pub unsafe extern "C" fn printf(
-    format: *const ::std::os::raw::c_char,
-    ...
-) -> ::std::os::raw::c_int {
-    wasm32::unreachable();
+unsafe extern "C" fn __stdio_write(ptr: *const u8, len: usize) -> usize {
+    0
+}
 
+#[no_mangle]
+unsafe extern "C" fn __stdout_write(ptr: *const u8, len: usize) -> usize {
+    0
+}
+
+#[no_mangle]
+unsafe extern "C" fn __stdio_seek(ptr: *const u8, len: usize) -> usize {
+    0
+}
+
+#[no_mangle]
+unsafe extern "C" fn __stdio_close(ptr: *const u8, len: usize) -> usize {
     0
 }
