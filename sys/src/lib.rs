@@ -7,6 +7,9 @@
 
 use std::ptr;
 
+#[cfg(target_family = "wasm")]
+use core::arch::wasm32;
+
 /// Common error message for converting between C `size_t` and Rust `usize`;
 pub const SIZE_T_ERROR: &str =
     "conversion between C type 'size_t' and Rust type 'usize' overflowed.";
@@ -23,3 +26,11 @@ include!("inlines/ptr_64.rs");
 include!("inlines/ptr_32_nan_boxing.rs");
 
 include!("inlines/common.rs");
+
+#[cfg(target_family = "wasm")]
+#[no_mangle]
+pub fn printf(format: *const ::std::os::raw::c_char, ...) -> ::std::os::raw::c_int {
+    wasm32::unreachable();
+
+    0
+}
