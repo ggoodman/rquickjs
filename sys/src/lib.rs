@@ -30,7 +30,10 @@ include!("inlines/common.rs");
 
 #[cfg(target_family = "wasm")]
 #[no_mangle]
-pub unsafe fn printf(format: *const ::std::os::raw::c_char, ...) -> ::std::os::raw::c_int {
+pub unsafe extern "C" fn printf(
+    format: *const ::std::os::raw::c_char,
+    ...
+) -> ::std::os::raw::c_int {
     wasm32::unreachable();
 
     0
