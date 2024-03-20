@@ -1,3 +1,4 @@
+#![feature(c_variadic)]
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
@@ -29,7 +30,7 @@ include!("inlines/common.rs");
 
 #[cfg(target_family = "wasm")]
 #[no_mangle]
-pub fn printf(format: *const ::std::os::raw::c_char, ...) -> ::std::os::raw::c_int {
+pub unsafe fn printf(format: *const ::std::os::raw::c_char, ...) -> ::std::os::raw::c_int {
     wasm32::unreachable();
 
     0
