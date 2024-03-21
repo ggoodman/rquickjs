@@ -1,13 +1,12 @@
 diff --git a/cutils.h b/cutils.h
-index 31f7cd8..e3a5658 100644
+index 31f7cd8..301f361 100644
 --- a/cutils.h
 +++ b/cutils.h
-@@ -49,6 +49,8 @@
- #define countof(x) (sizeof(x) / sizeof((x)[0]))
- #endif
+@@ -42,6 +42,9 @@
+ #define stringify(s)    tostring(s)
+ #define tostring(s)     #s
  
-+#define	assert(x) (void)0
 +
- typedef int BOOL;
- 
- #ifndef FALSE
+ #ifndef offsetof
+ #define offsetof(type, field) ((size_t) &((type *)0)->field)
+ #endif

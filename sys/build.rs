@@ -158,6 +158,7 @@ fn main() {
         ("_GNU_SOURCE".into(), None),
         ("CONFIG_VERSION".into(), Some("\"2020-01-19\"")),
         ("CONFIG_BIGNUM".into(), None),
+        ("NDEBUG".into(), None),
     ];
 
     if env::var("CARGO_CFG_TARGET_OS").unwrap() == "windows"
@@ -226,6 +227,7 @@ fn main() {
     let mut builder = cc::Build::new();
     builder
         .extra_warnings(false)
+        .flag_if_supported("-Wl,-r")
         .flag_if_supported("-Wno-implicit-const-int-float-conversion")
         //.flag("-Wno-array-bounds")
         //.flag("-Wno-format-truncation")
