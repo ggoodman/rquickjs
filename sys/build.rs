@@ -227,7 +227,6 @@ fn main() {
     let mut builder = cc::Build::new();
     builder
         .extra_warnings(false)
-        .flag_if_supported("-Wl,-r")
         .flag_if_supported("-Wno-implicit-const-int-float-conversion")
         //.flag("-Wno-array-bounds")
         //.flag("-Wno-format-truncation")
