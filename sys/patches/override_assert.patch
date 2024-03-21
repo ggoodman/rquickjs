@@ -1,0 +1,13 @@
+diff --git a/cutils.h b/cutils.h
+index 31f7cd8..e3a5658 100644
+--- a/cutils.h
++++ b/cutils.h
+@@ -49,6 +49,8 @@
+ #define countof(x) (sizeof(x) / sizeof((x)[0]))
+ #endif
+ 
++#define	assert(x) (void)0
++
+ typedef int BOOL;
+ 
+ #ifndef FALSE

@@ -151,6 +151,7 @@ fn main() {
         "atomic_new_class_id.patch",
         "dynamic_import_sync.patch",
         "strip_printf.patch",
+        "override_assert.patch",
     ];
 
     let mut defines = vec![
